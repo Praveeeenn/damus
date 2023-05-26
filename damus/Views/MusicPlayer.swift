@@ -29,7 +29,7 @@ class MusicPlayer: ObservableObject {
             guard let item = self.player?.currentItem else { return }
             self.currentTime = item.currentTime().seconds
             self.totalTime = item.duration.seconds
-            let currentProgress = self.currentTime / self.totalTime
+            let currentProgress = (self.currentTime / self.totalTime) * 100.0
             self.progress = Float(currentProgress)
         }
     }
