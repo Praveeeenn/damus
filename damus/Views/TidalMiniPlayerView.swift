@@ -76,6 +76,7 @@ struct MiniPlayerView: View {
     @State private var player: AVPlayer?
     @State private var isPlaying: Bool = false
     @State private var progress: Double = 0.0
+    @ObservedObject var musicPlayer = MusicPlayer.shared
 
     let audioURL: URL
     let artworkURL: URL
@@ -97,15 +98,9 @@ struct MiniPlayerView: View {
                     HStack(alignment: .center)  {
                         Button(action: {
                             isPlaying.toggle()
-                            if isPlaying {
-                                player = AVPlayer(url: audioURL)
-                                player?.play()
-                                startProgressObserver()
-                            } else {
-                                player?.pause()
-                            }
+                            musicPlayer.playPause(url: audioURL)
                         }) {
-                            Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                            Image(systemName: isPlaying ? "play.fill" : "pause.fill")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 16, height: 16)
@@ -113,24 +108,11 @@ struct MiniPlayerView: View {
                         }
                         .padding(.trailing, 4)
                         .background(.black)
-//                        VStack(alignment: .center) {
-//
-//                        }
-//                        ProgressBar(value: $progress)
-//                            .frame(height: 4)
-//                            .padding(.horizontal)
-//                            .foregroundColor(.purple)
-//                            .accentColor(.purple)
-//                            .background(.pink)
-                        ProgressView(value: progress, total: 100)
+                        ProgressView(value: musicPlayer.progress, total: 100)
                             .accentColor(.purple)
                             .foregroundColor(.white)
                             .padding(.trailing, 16)
                     }
-                    //.background(in: Rectangle())
-                    //.cornerRadius(6)
-                    //.frame(alignment: .center)
-                    //.background(Color.black)
                 }
                 .padding(8)
                 VStack {
