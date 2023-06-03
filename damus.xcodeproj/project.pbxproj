@@ -286,6 +286,7 @@
 		9CA876E229A00CEA0003B9A3 /* AttachMediaUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA876E129A00CE90003B9A3 /* AttachMediaUtility.swift */; };
 		ACED74872A1CE93C00AC5985 /* TidalMiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED74862A1CE93C00AC5985 /* TidalMiniPlayerView.swift */; };
 		ACED74892A1F8A1B00AC5985 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED74882A1F8A1B00AC5985 /* MusicPlayer.swift */; };
+		ACED74AB2A20EE8500AC5985 /* TIDALService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACED74AA2A20EE8500AC5985 /* TIDALService.swift */; };
 		BA693074295D649800ADDB87 /* UserSettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA693073295D649800ADDB87 /* UserSettingsStore.swift */; };
 		BAB68BED29543FA3007BA466 /* SelectWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB68BEC29543FA3007BA466 /* SelectWalletView.swift */; };
 		DD597CBD2963D85A00C64D32 /* MarkdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD597CBC2963D85A00C64D32 /* MarkdownTests.swift */; };
@@ -719,6 +720,7 @@
 		9CA876E129A00CE90003B9A3 /* AttachMediaUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachMediaUtility.swift; sourceTree = "<group>"; };
 		ACED74862A1CE93C00AC5985 /* TidalMiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidalMiniPlayerView.swift; sourceTree = "<group>"; };
 		ACED74882A1F8A1B00AC5985 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		ACED74AA2A20EE8500AC5985 /* TIDALService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TIDALService.swift; sourceTree = "<group>"; };
 		BA693073295D649800ADDB87 /* UserSettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsStore.swift; sourceTree = "<group>"; };
 		BAB68BEC29543FA3007BA466 /* SelectWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletView.swift; sourceTree = "<group>"; };
 		DD597CBC2963D85A00C64D32 /* MarkdownTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownTests.swift; sourceTree = "<group>"; };
@@ -976,6 +978,7 @@
 				4C363A8D28236FE4006E126D /* NoteContentView.swift */,
 				ACED74862A1CE93C00AC5985 /* TidalMiniPlayerView.swift */,
 				ACED74882A1F8A1B00AC5985 /* MusicPlayer.swift */,
+				ACED74AA2A20EE8500AC5985 /* TIDALService.swift */,
 				4C75EFAC28049CFB0006080F /* PostButton.swift */,
 				4C75EFA327FA577B0006080F /* PostView.swift */,
 				9CA876E129A00CE90003B9A3 /* AttachMediaUtility.swift */,
@@ -1628,6 +1631,7 @@
 				4C9F18E429ABDE6D008C55EC /* MaybeAnonPfpView.swift in Sources */,
 				4CA5588329F33F5B00DC6A45 /* StringCodable.swift in Sources */,
 				4C75EFB92804A2740006080F /* EventView.swift in Sources */,
+				ACED74AB2A20EE8500AC5985 /* TIDALService.swift in Sources */,
 				4C8D00C829DF791C0036AF10 /* CompatibleAttribute.swift in Sources */,
 				4C7D09742A0AEF9000943473 /* AlbyGradient.swift in Sources */,
 				3AA247FD297E3CFF0090C62D /* RepostsModel.swift in Sources */,

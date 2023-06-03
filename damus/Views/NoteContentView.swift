@@ -89,6 +89,18 @@ struct NoteContentView: View {
     
     var previewView: some View {
         Group {
+            //linkPreview
+            if let link = artifacts.links.first, link.absoluteString.isValidTidalURL() {
+                tidalPreview
+                    .frame(height: 90)
+            } else {
+                linkPreview
+            }
+        }
+    }
+    
+    var linkPreview: some View {
+        Group {
             if let preview = self.preview, show_images {
                 if let preview_height {
                     preview
@@ -100,6 +112,16 @@ struct NoteContentView: View {
                 LinkViewRepresentable(meta: .url(link))
                     .frame(height: 50)
             }
+        }
+    }
+    
+    var tidalPreview: some View {
+        VStack {
+            if let link = artifacts.links.first {
+                MiniPlayerView(audioURL: link, artworkURL:  URL(string: "https://upload.wikimedia.org/wikipedia/en/9/91/On_the_Floor.png")!)
+            }
+            //https://jesusful.com/wp-content/uploads/music/2022/09/Beyonc_-_Diva_(Jesusful.com).mp3
+            
         }
     }
     
@@ -386,4 +408,16 @@ func trim_suffix(_ str: String) -> String {
 // trim prefix whitespace and newlines
 func trim_prefix(_ str: String) -> String {
     return str.replacingOccurrences(of: "^\\s+", with: "", options: .regularExpression)
+}
+
+extension String {
+    func isValidTidalURL() -> Bool {
+        let regexPattern = "^(https?://)?(www\\.)?tidal\\.com/(browse/)?(track|album|playlist)/[0-9a-fA-F\\-]+$"
+        if let regex = try? NSRegularExpression(pattern: regexPattern),
+           regex.firstMatch(in: self, range: NSRange(location: 0, length: self.count)) != nil {
+            return true
+        } else {
+            return false
+        }
+    }
 }

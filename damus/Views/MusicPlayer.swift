@@ -35,12 +35,21 @@ class MusicPlayer: ObservableObject {
     }
 
     func playPause(url: URL) {
-        if let currentItemURL = playerItem?.asset as? AVURLAsset, currentItemURL.url == url {
-            // If the song is currently playing, pause it. If it's paused, resume it.
-            isPlaying ? pause() : resume()
-        } else {
-            // If a different song is chosen, start it from the beginning.
-            play(url: url)
+        let manifestService = ManifestService()
+        Task {
+            do {
+                guard let previewURL = try await manifestService.getPreviewURL(urlString: url.absoluteString) else { return }
+                print("Preview URL: \(previewURL)")
+                if isPlaying, let currentItemURL = playerItem?.asset as? AVURLAsset, currentItemURL.url == url {
+                    // If the song is currently playing, pause it. If it's paused, resume it.
+                    stop()
+                } else {
+                    // If a different song is chosen, start it from the beginning.
+                    play(url: previewURL)
+                }
+            } catch {
+                print("Error retrieving preview URL:", error)
+            }
         }
     }
 
@@ -70,5 +79,15 @@ class MusicPlayer: ObservableObject {
     private func pause() {
         player?.pause()
         isPlaying = false
+    }
+    
+    func extractMP3URL(from string: String) -> String? {
+        let pattern = #"https?://[\w./_-]+\.mp3"#
+        
+        if let range = string.range(of: pattern, options: .regularExpression) {
+            return String(string[range])
+        }
+        
+        return nil
     }
 }
